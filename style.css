@@ -1,9 +1,8 @@
+
 body{font-family:Arial;background:#dfffd6;text-align:center}
-.card{background:white;padding:20px;margin:20px auto;max-width:900px;border-radius:15px}
-.oculto{display:none}
-#tablero{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:20px}
-.casilla{background:#98fb98;padding:20px;border-radius:50%}
-.rio{background:#87ceeb}
-.meta{background:gold}
-button{padding:10px 20px;margin:5px}
+.card{background:#fff;padding:20px;border-radius:15px;max-width:1000px;margin:20px auto}
+.avatar{font-size:80px}
+#tablero{display:grid;grid-template-columns:repeat(5,100px);gap:15px;justify-content:center;margin-top:20px;position:relative}
+.hoja{width:90px;height:90px;border-radius:50%;background:#6ccf5f;display:flex;align-items:center;justify-content:center;font-size:28px}
+.rio{background:#7ec8e3}
 
