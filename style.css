@@ -1,8 +1,7 @@
 
-body{font-family:Arial;background:#dfffd6;text-align:center}
-.card{background:#fff;padding:20px;border-radius:15px;max-width:1000px;margin:20px auto}
-.avatar{font-size:80px}
-#tablero{display:grid;grid-template-columns:repeat(5,100px);gap:15px;justify-content:center;margin-top:20px;position:relative}
-.hoja{width:90px;height:90px;border-radius:50%;background:#6ccf5f;display:flex;align-items:center;justify-content:center;font-size:28px}
-.rio{background:#7ec8e3}
+body{font-family:Arial;background:#dfffd6;margin:0}
+.pantalla{display:none;min-height:100vh;align-items:center;justify-content:center}
+.pantalla.activa{display:flex}
+.card{background:white;padding:30px;border-radius:20px;text-align:center;width:90%;max-width:500px}
+input,select,button{display:block;width:100%;padding:12px;margin:10px 0}
 
