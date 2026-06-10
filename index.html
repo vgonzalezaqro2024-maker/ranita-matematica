@@ -7,54 +7,63 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header>
+<h1>🐸 Ranita Matemática</h1>
+</header>
 
-<section id="registro" class="pantalla activa">
-<div class="card">
+<section id="registro" class="card">
 <h2>Registro</h2>
 <input id="nombre" placeholder="Nombre completo">
 <input id="edad" type="number" placeholder="Edad">
-<button onclick="irDificultad()">Continuar</button>
-</div>
-</section>
-
-<section id="dificultad" class="pantalla">
-<div class="card">
-<h2>Nivel de dificultad</h2>
-<button onclick="guardarDificultad('Fácil')">🟢 Fácil</button>
-<button onclick="guardarDificultad('Intermedio')">🟡 Intermedio</button>
-<button onclick="guardarDificultad('Difícil')">🔴 Difícil</button>
-</div>
-</section>
-
-<section id="avatar" class="pantalla">
-<div class="card">
-<h2>Personaliza tu avatar</h2>
-<select id="avatarSelect">
-<option>🐸</option>
-<option>🐸👑</option>
-<option>🐸🎩</option>
-<option>🐸🧢</option>
+<select id="grado">
+<option value="">Selecciona grado</option>
+<option value="1">1°</option>
+<option value="2">2°</option>
+<option value="3">3°</option>
 </select>
-<button onclick="iniciarJuego()">Comenzar Juego</button>
-</div>
+<button onclick="registrarJugador()">Continuar</button>
 </section>
 
-<section id="juego" class="pantalla">
+<section id="avatar" class="card oculto">
+<h2>Personaliza tu ranita</h2>
+<select id="sombrero">
+<option>🎩</option>
+<option>👑</option>
+<option>🧢</option>
+<option>🎓</option>
+</select>
+<button onclick="guardarAvatar()">Guardar Avatar</button>
+</section>
 
-    <div class="game-header">
-        <h2 id="info"></h2>
+<section id="niveles" class="card oculto">
+<h2>Niveles</h2>
+<button onclick="entrarNivelFacil()">🟢 Fácil</button>
+<button id="btnIntermedio" disabled>🟡 Intermedio 🔒</button>
+<button id="btnDificil" disabled>🔴 Difícil 🔒</button>
+</section>
 
-        <button id="rollDiceBtn">
-            🎲 Lanzar dado
-        </button>
+<section id="juego" class="card oculto">
+<p>Jugador: <span id="nombreJugador"></span></p>
+<p>Posición: <span id="posicionActual">1</span></p>
+<p>Puntos: <span id="puntos">0</span></p>
+<p>Racha: <span id="racha">0</span></p>
+<p>💰 Monedas: <span id="monedas">0</span></p>
+<p>✨ XP: <span id="xp">0</span></p>
+<p>🏆 Nivel: <span id="nivelJugador">1</span></p>
+<p>⭐ Estrellas: <span id="estrellas">0</span></p>
 
-        <div id="questionContainer"></div>
-    </div>
+<button onclick="lanzarDado()">🎲 Lanzar Dado</button>
+<h3 id="resultadoDado">Resultado: -</h3>
 
-    <div id="boardContainer">
-        <div id="tablero"></div>
-    </div>
+<div id="tablero"></div>
 
+<h3 id="pregunta">Lanza el dado</h3>
+<input id="respuesta" placeholder="Respuesta">
+<button onclick="verificarRespuesta()">Responder</button>
+</section>
+
+<section id="victoria" class="card oculto">
+<h1>🏆 ¡Ganaste!</h1>
 </section>
 
 <script src="script.js"></script>
