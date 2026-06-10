@@ -1,356 +1,71 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>🐸 Ranita Matemática</title>
-
+<title>Ranita Matemática</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
 <header>
-    <h1>🐸 Ranita Matemática</h1>
-    <p>¡Aprende jugando!</p>
+<h1>🐸 Ranita Matemática</h1>
 </header>
 
-<!-- REGISTRO -->
-
-<section id="registro" class="pantalla">
-
-    <div class="card">
-
-        <h2>Registro del Estudiante</h2>
-
-        <input
-        type="text"
-        id="nombre"
-        placeholder="Nombre completo">
-
-        <input
-        type="number"
-        id="edad"
-        placeholder="Edad">
-
-        <select id="grado">
-
-            <option value="">
-                Selecciona tu grado
-            </option>
-
-            <option value="1">
-                1° Primaria
-            </option>
-
-            <option value="2">
-                2° Primaria
-            </option>
-
-            <option value="3">
-                3° Primaria
-            </option>
-
-        </select>
-
-        <button onclick="registrarJugador()">
-            Comenzar Aventura
-        </button>
-
-    </div>
-
+<section id="registro" class="card">
+<h2>Registro</h2>
+<input id="nombre" placeholder="Nombre completo">
+<input id="edad" type="number" placeholder="Edad">
+<select id="grado">
+<option value="">Selecciona grado</option>
+<option value="1">1°</option>
+<option value="2">2°</option>
+<option value="3">3°</option>
+</select>
+<button onclick="registrarJugador()">Continuar</button>
 </section>
 
-<!-- AVATAR -->
-
-<section
-id="avatar"
-class="pantalla"
-style="display:none;">
-
-    <div class="card">
-
-        <h2>Personaliza tu Ranita</h2>
-
-        <div id="vistaRanita">
-
-            <div id="sombreroVista">
-                🎩
-            </div>
-
-            <div id="ranita">
-                🐸
-            </div>
-
-        </div>
-
-        <h3>Sombrero</h3>
-
-        <select id="sombrero">
-
-            <option value="🎩">
-                Sombrero Negro
-            </option>
-
-            <option value="👑">
-                Corona
-            </option>
-
-            <option value="🧢">
-                Gorra
-            </option>
-
-            <option value="🎓">
-                Birrete
-            </option>
-
-        </select>
-
-        <h3>Color</h3>
-
-        <select id="colorRanita">
-
-            <option value="#7CFC00">
-                Verde
-            </option>
-
-            <option value="#87CEEB">
-                Azul
-            </option>
-
-            <option value="#FFD700">
-                Amarillo
-            </option>
-
-            <option value="#FF69B4">
-                Rosa
-            </option>
-
-        </select>
-
-        <button onclick="guardarAvatar()">
-            Guardar Avatar
-        </button>
-
-    </div>
-
+<section id="avatar" class="card oculto">
+<h2>Personaliza tu ranita</h2>
+<select id="sombrero">
+<option>🎩</option>
+<option>👑</option>
+<option>🧢</option>
+<option>🎓</option>
+</select>
+<button onclick="guardarAvatar()">Guardar Avatar</button>
 </section>
 
-<!-- NIVELES -->
-
-<section
-id="niveles"
-class="pantalla"
-style="display:none;">
-
-    <div class="card">
-
-        <h2>Selecciona tu Nivel</h2>
-
-        <button
-        class="nivel facil"
-        onclick="entrarNivelFacil()">
-
-            🟢 Fácil
-
-        </button>
-
-        <button
-        id="btnIntermedio"
-        class="nivel intermedio"
-        disabled
-        onclick="entrarNivelIntermedio()">
-
-            🟡 Intermedio 🔒
-
-        </button>
-
-        <button
-        id="btnDificil"
-        class="nivel dificil"
-        disabled
-        onclick="entrarNivelDificil()">
-
-            🔴 Difícil 🔒
-
-        </button>
-
-    </div>
-
+<section id="niveles" class="card oculto">
+<h2>Niveles</h2>
+<button onclick="entrarNivelFacil()">🟢 Fácil</button>
+<button id="btnIntermedio" disabled>🟡 Intermedio 🔒</button>
+<button id="btnDificil" disabled>🔴 Difícil 🔒</button>
 </section>
 
-<!-- JUEGO -->
+<section id="juego" class="card oculto">
+<p>Jugador: <span id="nombreJugador"></span></p>
+<p>Posición: <span id="posicionActual">1</span></p>
+<p>Puntos: <span id="puntos">0</span></p>
+<p>Racha: <span id="racha">0</span></p>
+<p>💰 Monedas: <span id="monedas">0</span></p>
+<p>✨ XP: <span id="xp">0</span></p>
+<p>🏆 Nivel: <span id="nivelJugador">1</span></p>
+<p>⭐ Estrellas: <span id="estrellas">0</span></p>
 
-<section
-id="juego"
-class="pantalla"
-style="display:none;">
+<button onclick="lanzarDado()">🎲 Lanzar Dado</button>
+<h3 id="resultadoDado">Resultado: -</h3>
 
-    <div class="card">
+<div id="tablero"></div>
 
-        <h2>🐸 Tablero Matemático</h2>
-
-       
-                <div id="informacion">
-
-    <p>👦 Jugador:
-        <span id="nombreJugador"></span>
-    </p>
-
-    <p>📍 Posición:
-        <span id="posicionActual">1</span>
-    </p>
-
-    <p>⭐ Puntos:
-        <span id="puntos">0</span>
-    </p>
-
-    <p>🔥 Racha:
-        <span id="racha">0</span>
-    </p>
-
-    <p>💰 Monedas:
-        <span id="monedas">0</span>
-    </p>
-
-    <p>🏆 Nivel:
-        <span id="nivelJugador">1</span>
-    </p>
-
-    <p>✨ XP:
-        <span id="xp">0</span>/100
-    </p>
-
-</div>
-               
-            </p>
-
-        </div>
-
-        <button
-        id="btnDado"
-        onclick="lanzarDado()">
-
-            🎲 Lanzar Dado
-
-        </button>
-
-        <h3 id="resultadoDado">
-            Resultado: -
-        </h3>
-
-        <!-- TABLERO -->
-
-        <div id="tablero">
-
-            <div class="casilla" id="c1">1 🐸</div>
-            <div class="casilla" id="c2">2</div>
-            <div class="casilla" id="c3">3</div>
-            <div class="casilla rio" id="c4">🌊</div>
-            <div class="casilla" id="c5">5</div>
-
-            <div class="casilla" id="c6">6</div>
-            <div class="casilla" id="c7">7</div>
-            <div class="casilla" id="c8">8</div>
-            <div class="casilla rio" id="c9">🌊</div>
-            <div class="casilla" id="c10">10</div>
-
-            <div class="casilla" id="c11">11</div>
-            <div class="casilla" id="c12">12</div>
-            <div class="casilla" id="c13">13</div>
-            <div class="casilla" id="c14">14</div>
-            <div class="casilla rio" id="c15">🌊</div>
-
-            <div class="casilla" id="c16">16</div>
-            <div class="casilla" id="c17">17</div>
-            <div class="casilla" id="c18">18</div>
-            <div class="casilla" id="c19">19</div>
-            <div class="casilla" id="c20">20</div>
-
-            <div class="casilla rio" id="c21">🌊</div>
-            <div class="casilla" id="c22">22</div>
-            <div class="casilla" id="c23">23</div>
-            <div class="casilla" id="c24">24</div>
-            <div class="casilla" id="c25">25</div>
-
-            <div class="casilla" id="c26">26</div>
-            <div class="casilla rio" id="c27">🌊</div>
-            <div class="casilla" id="c28">28</div>
-            <div class="casilla" id="c29">29</div>
-
-            <div
-            class="casilla meta"
-            id="c30">
-
-                🏆
-
-            </div>
-
-        </div>
-
-        <!-- PREGUNTAS -->
-
-        <div id="preguntaContainer">
-
-            <h3 id="pregunta">
-                Presiona el dado para comenzar
-            </h3>
-
-            <input
-            type="text"
-            id="respuesta"
-            placeholder="Escribe tu respuesta">
-
-            <button
-            onclick="verificarRespuesta()">
-
-                Responder
-
-            </button>
-
-        </div>
-
-    </div>
-
+<h3 id="pregunta">Lanza el dado</h3>
+<input id="respuesta" placeholder="Respuesta">
+<button onclick="verificarRespuesta()">Responder</button>
 </section>
 
-<!-- VICTORIA -->
-
-<section
-id="victoria"
-class="pantalla"
-style="display:none;">
-
-    <div class="card">
-
-        <h1>
-            🏆 ¡FELICIDADES!
-        </h1>
-
-        <h2>
-            Has completado el Nivel Fácil
-        </h2>
-
-        <p>
-            Tu ranita llegó a la meta.
-        </p>
-
-        <button
-        onclick="location.reload()">
-
-            Jugar de Nuevo
-
-        </button>
-
-    </div>
-
+<section id="victoria" class="card oculto">
+<h1>🏆 ¡Ganaste!</h1>
 </section>
 
 <script src="script.js"></script>
-
 </body>
 </html>
-```
