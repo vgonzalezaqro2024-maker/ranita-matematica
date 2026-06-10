@@ -4,4 +4,14 @@ body{font-family:Arial;background:#dfffd6;margin:0}
 .pantalla.activa{display:flex}
 .card{background:white;padding:30px;border-radius:20px;text-align:center;width:90%;max-width:500px}
 input,select,button{display:block;width:100%;padding:12px;margin:10px 0}
+.game-header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    text-align:center;
+    padding:20px;
+}
 
+#boardContainer{
+    margin-top:20px;
+}
