@@ -17,6 +17,14 @@ let avatar = {
 let posicion = 1;
 let puntos = 0;
 let racha = 0;
+
+let monedas = 0;
+
+let xp = 0;
+
+let nivelJugador = 1;
+
+let estrellas = 0;
 let respuestaCorrecta = 0;
 
 // =============================
