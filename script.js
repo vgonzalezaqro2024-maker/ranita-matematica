@@ -17,6 +17,7 @@ let avatar = {
 let posicion = 1;
 let puntos = 0;
 let racha = 0;
+let estrellas = 0;
 
 let monedas = 0;
 
@@ -26,7 +27,30 @@ let nivelJugador = 1;
 
 let estrellas = 0;
 let respuestaCorrecta = 0;
+// =============================
+// SISTEMA DE EXPERIENCIA
+// =============================
 
+function ganarXP(cantidad){
+
+    xp += cantidad;
+
+    if(xp >= 100){
+
+        xp = 0;
+
+        nivelJugador++;
+
+        monedas += 20;
+
+        alert(
+            "🎉 ¡Subiste al nivel " +
+            nivelJugador + "!"
+        );
+
+    }
+
+}
 // =============================
 // REGISTRO DEL JUGADOR
 // =============================
@@ -202,12 +226,35 @@ function mostrarRanita(){
 
 function lanzarDado(){
 
-    let numero = Math.floor(Math.random() * 6) + 1;
+    let contador = 0;
 
-    document.getElementById("resultadoDado").innerText =
-        "Resultado: " + numero;
+    let animacion = setInterval(() => {
 
-    moverRanita(numero);
+        document.getElementById(
+            "resultadoDado"
+        ).innerText =
+        "🎲 " +
+        (Math.floor(Math.random()*6)+1);
+
+        contador++;
+
+        if(contador >= 10){
+
+            clearInterval(animacion);
+
+            let numero =
+            Math.floor(Math.random()*6)+1;
+
+            document.getElementById(
+                "resultadoDado"
+            ).innerText =
+            "🎲 Resultado: " + numero;
+
+            moverRanita(numero);
+
+        }
+
+    },100);
 
 }
 
@@ -366,11 +413,11 @@ function generarPregunta(){
 // =============================
 // VERIFICAR RESPUESTA
 // =============================
-
 function verificarRespuesta(){
 
     let respuestaUsuario =
-        document.getElementById("respuesta").value;
+    document.getElementById("respuesta")
+    .value.trim();
 
     if(respuestaUsuario === ""){
 
@@ -379,26 +426,37 @@ function verificarRespuesta(){
 
     }
 
-    if(parseInt(respuestaUsuario)
-        === respuestaCorrecta){
+    if(
+        parseInt(respuestaUsuario)
+        === respuestaCorrecta
+    ){
 
         puntos += 10;
 
+        monedas += 5;
+
+        estrellas++;
+
         racha++;
 
+        ganarXP(20);
+
         alert(
-            "✅ ¡Correcto!"
+            "✅ ¡Correcto!\n" +
+            "+10 puntos\n" +
+            "+5 monedas\n" +
+            "+20 XP"
         );
 
     }
-
     else{
 
         racha = 0;
 
         alert(
-            "❌ Incorrecto. La respuesta era: "
-            + respuestaCorrecta
+            "❌ Incorrecto.\n" +
+            "La respuesta correcta era: " +
+            respuestaCorrecta
         );
 
     }
@@ -489,7 +547,6 @@ function verificarRacha(){
 // =============================
 // GANAR JUEGO
 // =============================
-
 function ganarJuego(){
 
     localStorage.setItem(
@@ -497,14 +554,17 @@ function ganarJuego(){
         "si"
     );
 
-    document.getElementById("juego").style.display =
-        "none";
+    monedas += 100;
 
-    document.getElementById("victoria").style.display =
-        "block";
+    puntos += 200;
+
+    document.getElementById("juego")
+    .style.display = "none";
+
+    document.getElementById("victoria")
+    .style.display = "block";
 
 }
-
 // =============================
 // DESBLOQUEAR NIVEL INTERMEDIO
 // =============================
@@ -589,6 +649,53 @@ function ganarXP(cantidad){
     }
 
     actualizarPanel();
+    function actualizarPanel(){
+
+    document.getElementById(
+        "posicionActual"
+    ).innerText = posicion;
+
+    document.getElementById(
+        "puntos"
+    ).innerText = puntos;
+
+    document.getElementById(
+        "racha"
+    ).innerText = racha;
+
+    let monedasElemento =
+    document.getElementById("monedas");
+
+    if(monedasElemento){
+        monedasElemento.innerText =
+        monedas;
+    }
+
+    let xpElemento =
+    document.getElementById("xp");
+
+    if(xpElemento){
+        xpElemento.innerText =
+        xp;
+    }
+
+    let nivelElemento =
+    document.getElementById(
+        "nivelJugador"
+    );
+
+    if(nivelElemento){
+        nivelElemento.innerText =
+        nivelJugador;
+    }
+let estrellasElemento =
+document.getElementById("estrellas");
+
+if(estrellasElemento){
+    estrellasElemento.innerText =
+    estrellas;
+}
+}
 
 }
 ```
