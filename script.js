@@ -2,7 +2,6 @@ let jugador={nombre:'',edad:'',grado:''};
 let posicion=1,puntos=0,racha=0,monedas=0,xp=0,nivelJugador=1,estrellas=0,respuestaCorrecta=0;
 
 const rios={4:2,9:5,15:10,21:16,27:22};
-
 function registrarJugador(){
 const n=nombre.value.trim();
 const e=edad.value.trim();
