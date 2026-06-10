@@ -1,14 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
+<meta charset="UTF-8">
 <title>Ranita Matemática</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<header>
 <h1>🐸 Ranita Matemática</h1>
+</header>
 
-<p>Mi videojuego está funcionando.</p>
+<div class="container" id="registro">
+
+<h2>Registro del estudiante</h2>
+
+<input type="text" id="nombre" placeholder="Nombre completo">
+
+<input type="number" id="edad" placeholder="Edad">
+
+<select id="grado">
+<option value="">Selecciona tu grado</option>
+<option>1°</option>
+<option>2°</option>
+<option>3°</option>
+<option>4°</option>
+<option>5°</option>
+<option>6°</option>
+</select>
+
+<button onclick="registrarJugador()">
+Comenzar aventura
+</button>
+
+</div>
+
+<div class="container" id="menu" style="display:none;">
+
+<h2>Selecciona tu nivel</h2>
+
+<button>🟢 Fácil</button>
+
+<button disabled>🟡 Intermedio 🔒</button>
+
+<button disabled>🔴 Difícil 🔒</button>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
