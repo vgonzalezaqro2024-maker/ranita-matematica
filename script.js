@@ -17,5 +17,4 @@ alert("¡Registro completado!");
 
 document.getElementById("registro").style.display="none";
 document.getElementById("menu").style.display="block";
-
 }
