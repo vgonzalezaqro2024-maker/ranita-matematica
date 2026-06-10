@@ -14,128 +14,128 @@
 <body>
 
 <header>
-<h1>🐸 Ranita Matemática</h1>
-<p>¡Aprende jugando!</p>
+    <h1>🐸 Ranita Matemática</h1>
+    <p>¡Aprende jugando!</p>
 </header>
 
 <!-- REGISTRO -->
 
 <section id="registro" class="pantalla">
 
-<div class="card">
+    <div class="card">
 
-<h2>Registro del Estudiante</h2>
+        <h2>Registro del Estudiante</h2>
 
-<input
-type="text"
-id="nombre"
-placeholder="Nombre completo">
+        <input
+        type="text"
+        id="nombre"
+        placeholder="Nombre completo">
 
-<input
-type="number"
-id="edad"
-placeholder="Edad">
+        <input
+        type="number"
+        id="edad"
+        placeholder="Edad">
 
-<select id="grado">
+        <select id="grado">
 
-<option value="">
-Selecciona tu grado
-</option>
+            <option value="">
+                Selecciona tu grado
+            </option>
 
-<option value="1">
-1° Primaria
-</option>
+            <option value="1">
+                1° Primaria
+            </option>
 
-<option value="2">
-2° Primaria
-</option>
+            <option value="2">
+                2° Primaria
+            </option>
 
-<option value="3">
-3° Primaria
-</option>
+            <option value="3">
+                3° Primaria
+            </option>
 
-</select>
+        </select>
 
-<button onclick="registrarJugador()">
-Comenzar Aventura
-</button>
+        <button onclick="registrarJugador()">
+            Comenzar Aventura
+        </button>
 
-</div>
+    </div>
 
 </section>
 
-<!-- PERSONALIZAR RANITA -->
+<!-- AVATAR -->
 
 <section
 id="avatar"
 class="pantalla"
 style="display:none;">
 
-<div class="card">
+    <div class="card">
 
-<h2>Personaliza tu Ranita</h2>
+        <h2>Personaliza tu Ranita</h2>
 
-<div id="vistaRanita">
+        <div id="vistaRanita">
 
-<div id="ranita">
-🐸
-</div>
+            <div id="sombreroVista">
+                🎩
+            </div>
 
-<div id="sombreroVista">
-🎩
-</div>
+            <div id="ranita">
+                🐸
+            </div>
 
-</div>
+        </div>
 
-<h3>Sombrero</h3>
+        <h3>Sombrero</h3>
 
-<select id="sombrero">
+        <select id="sombrero">
 
-<option value="🎩">
-Sombrero Negro
-</option>
+            <option value="🎩">
+                Sombrero Negro
+            </option>
 
-<option value="👑">
-Corona
-</option>
+            <option value="👑">
+                Corona
+            </option>
 
-<option value="🧢">
-Gorra
-</option>
+            <option value="🧢">
+                Gorra
+            </option>
 
-<option value="🎓">
-Birrete
-</option>
+            <option value="🎓">
+                Birrete
+            </option>
 
-</select>
+        </select>
 
-<h3>Color</h3>
+        <h3>Color</h3>
 
-<select id="colorRanita">
+        <select id="colorRanita">
 
-<option value="#7CFC00">
-Verde
-</option>
+            <option value="#7CFC00">
+                Verde
+            </option>
 
-<option value="#87CEEB">
-Azul
-</option>
+            <option value="#87CEEB">
+                Azul
+            </option>
 
-<option value="#FFD700">
-Amarillo
-</option>
+            <option value="#FFD700">
+                Amarillo
+            </option>
 
-<option value="#FF69B4">
-Rosa
-</option>
+            <option value="#FF69B4">
+                Rosa
+            </option>
 
-</select>
+        </select>
 
-<button onclick="guardarAvatar()">
-Guardar Avatar
-</button>
+        <button onclick="guardarAvatar()">
+            Guardar Avatar
+        </button>
 
-</div>
+    </div>
 
 </section>
 
@@ -146,37 +146,39 @@ id="niveles"
 class="pantalla"
 style="display:none;">
 
-<div class="card">
+    <div class="card">
 
-<h2>Selecciona tu Nivel</h2>
+        <h2>Selecciona tu Nivel</h2>
 
-<button
-class="nivel facil"
-onclick="entrarNivelFacil()">
+        <button
+        class="nivel facil"
+        onclick="entrarNivelFacil()">
 
-🟢 Fácil
+            🟢 Fácil
 
-</button>
+        </button>
 
-<button
-id="btnIntermedio"
-class="nivel intermedio"
-disabled>
+        <button
+        id="btnIntermedio"
+        class="nivel intermedio"
+        disabled
+        onclick="entrarNivelIntermedio()">
 
-🟡 Intermedio 🔒
+            🟡 Intermedio 🔒
 
-</button>
+        </button>
 
-<button
-id="btnDificil"
-class="nivel dificil"
-disabled>
+        <button
+        id="btnDificil"
+        class="nivel dificil"
+        disabled
+        onclick="entrarNivelDificil()">
 
-🔴 Difícil 🔒
+            🔴 Difícil 🔒
 
-</button>
+        </button>
 
-</div>
+    </div>
 
 </section>
 
@@ -187,151 +189,150 @@ id="juego"
 class="pantalla"
 style="display:none;">
 
-<div class="card">
+    <div class="card">
 
-<h2>🐸 Tablero Matemático</h2>
+        <h2>🐸 Tablero Matemático</h2>
 
-<div id="informacion">
+        <div id="informacion">
 
-<p>
-Jugador:
-<span id="nombreJugador"></span>
-</p>
+            <p>
+                Jugador:
+                <span id="nombreJugador"></span>
+            </p>
 
-<p>
-Posición:
-<span id="posicionActual">
-1
-</span>
-</p>
+            <p>
+                Posición:
+                <span id="posicionActual">1</span>
+            </p>
 
-<p>
-Puntos:
-<span id="puntos">
-0
-</span>
-</p>
+            <p>
+                Puntos:
+                <span id="puntos">0</span>
+            </p>
 
-<p>
-Racha:
-<span id="racha">
-0
-</span>
-</p>
+            <p>
+                Racha:
+                <span id="racha">0</span>
+            </p>
 
-</div>
+        </div>
 
-<button id="btnDado"
-onclick="lanzarDado()">
+        <button
+        id="btnDado"
+        onclick="lanzarDado()">
 
-🎲 Lanzar Dado
+            🎲 Lanzar Dado
 
-</button>
+        </button>
 
-<h3 id="resultadoDado">
-Resultado:
--
-</h3>
+        <h3 id="resultadoDado">
+            Resultado: -
+        </h3>
 
-<!-- TABLERO -->
+        <!-- TABLERO -->
 
-<div id="tablero">
+        <div id="tablero">
 
-<div class="casilla" id="c1">1 🐸</div>
-<div class="casilla" id="c2">2</div>
-<div class="casilla" id="c3">3</div>
-<div class="casilla rio" id="c4">🌊</div>
-<div class="casilla" id="c5">5</div>
+            <div class="casilla" id="c1">1 🐸</div>
+            <div class="casilla" id="c2">2</div>
+            <div class="casilla" id="c3">3</div>
+            <div class="casilla rio" id="c4">🌊</div>
+            <div class="casilla" id="c5">5</div>
 
-<div class="casilla" id="c6">6</div>
-<div class="casilla" id="c7">7</div>
-<div class="casilla" id="c8">8</div>
-<div class="casilla rio" id="c9">🌊</div>
-<div class="casilla" id="c10">10</div>
+            <div class="casilla" id="c6">6</div>
+            <div class="casilla" id="c7">7</div>
+            <div class="casilla" id="c8">8</div>
+            <div class="casilla rio" id="c9">🌊</div>
+            <div class="casilla" id="c10">10</div>
 
-<div class="casilla" id="c11">11</div>
-<div class="casilla" id="c12">12</div>
-<div class="casilla" id="c13">13</div>
-<div class="casilla" id="c14">14</div>
-<div class="casilla rio" id="c15">🌊</div>
+            <div class="casilla" id="c11">11</div>
+            <div class="casilla" id="c12">12</div>
+            <div class="casilla" id="c13">13</div>
+            <div class="casilla" id="c14">14</div>
+            <div class="casilla rio" id="c15">🌊</div>
 
-<div class="casilla" id="c16">16</div>
-<div class="casilla" id="c17">17</div>
-<div class="casilla" id="c18">18</div>
-<div class="casilla" id="c19">19</div>
-<div class="casilla" id="c20">20</div>
+            <div class="casilla" id="c16">16</div>
+            <div class="casilla" id="c17">17</div>
+            <div class="casilla" id="c18">18</div>
+            <div class="casilla" id="c19">19</div>
+            <div class="casilla" id="c20">20</div>
 
-<div class="casilla rio" id="c21">🌊</div>
-<div class="casilla" id="c22">22</div>
-<div class="casilla" id="c23">23</div>
-<div class="casilla" id="c24">24</div>
-<div class="casilla" id="c25">25</div>
+            <div class="casilla rio" id="c21">🌊</div>
+            <div class="casilla" id="c22">22</div>
+            <div class="casilla" id="c23">23</div>
+            <div class="casilla" id="c24">24</div>
+            <div class="casilla" id="c25">25</div>
 
-<div class="casilla" id="c26">26</div>
-<div class="casilla rio" id="c27">🌊</div>
-<div class="casilla" id="c28">28</div>
-<div class="casilla" id="c29">29</div>
-<div class="casilla meta" id="c30">
-🏆
-</div>
+            <div class="casilla" id="c26">26</div>
+            <div class="casilla rio" id="c27">🌊</div>
+            <div class="casilla" id="c28">28</div>
+            <div class="casilla" id="c29">29</div>
 
-</div>
+            <div
+            class="casilla meta"
+            id="c30">
 
-<!-- PREGUNTA -->
+                🏆
 
-<div id="preguntaContainer">
+            </div>
 
-<h3 id="pregunta">
+        </div>
 
-Pregunta aparecerá aquí
+        <!-- PREGUNTAS -->
 
-</h3>
+        <div id="preguntaContainer">
 
-<input
-type="text"
-id="respuesta"
-placeholder="Escribe tu respuesta">
+            <h3 id="pregunta">
+                Presiona el dado para comenzar
+            </h3>
 
-<button onclick="verificarRespuesta()">
+            <input
+            type="text"
+            id="respuesta"
+            placeholder="Escribe tu respuesta">
 
-Responder
+            <button
+            onclick="verificarRespuesta()">
 
-</button>
+                Responder
 
-</div>
+            </button>
 
-</div>
+        </div>
+
+    </div>
 
 </section>
 
-<!-- PANTALLA FINAL -->
+<!-- VICTORIA -->
 
 <section
 id="victoria"
 class="pantalla"
 style="display:none;">
 
-<div class="card">
+    <div class="card">
 
-<h1>
-🏆 ¡FELICIDADES!
-</h1>
+        <h1>
+            🏆 ¡FELICIDADES!
+        </h1>
 
-<h2>
-Has completado el Nivel Fácil
-</h2>
+        <h2>
+            Has completado el Nivel Fácil
+        </h2>
 
-<p>
-Tu ranita llegó a la meta.
-</p>
+        <p>
+            Tu ranita llegó a la meta.
+        </p>
 
-<button onclick="location.reload()">
+        <button
+        onclick="location.reload()">
 
-Jugar de Nuevo
+            Jugar de Nuevo
 
-</button>
+        </button>
 
-</div>
+    </div>
 
 </section>
 
