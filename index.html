@@ -2,22 +2,51 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Registro</title>
-<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ranita Matemática</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<section id="registro" class="pantalla activa">
 <div class="card">
-<h1>🐸 Ranita Matemática</h1>
+<h2>Registro</h2>
 <input id="nombre" placeholder="Nombre completo">
 <input id="edad" type="number" placeholder="Edad">
-<select id="grado">
-<option value="">Selecciona grado</option>
-<option value="1">1°</option>
-<option value="2">2°</option>
-<option value="3">3°</option>
-</select>
-<button onclick="registrar()">Continuar</button>
+<button onclick="irDificultad()">Continuar</button>
 </div>
-<script src="js/registro.js"></script>
+</section>
+
+<section id="dificultad" class="pantalla">
+<div class="card">
+<h2>Nivel de dificultad</h2>
+<button onclick="guardarDificultad('Fácil')">🟢 Fácil</button>
+<button onclick="guardarDificultad('Intermedio')">🟡 Intermedio</button>
+<button onclick="guardarDificultad('Difícil')">🔴 Difícil</button>
+</div>
+</section>
+
+<section id="avatar" class="pantalla">
+<div class="card">
+<h2>Personaliza tu avatar</h2>
+<select id="avatarSelect">
+<option>🐸</option>
+<option>🐸👑</option>
+<option>🐸🎩</option>
+<option>🐸🧢</option>
+</select>
+<button onclick="iniciarJuego()">Comenzar Juego</button>
+</div>
+</section>
+
+<section id="juego" class="pantalla">
+<div class="card">
+<h2 id="info"></h2>
+<p>Esta es la pantalla del juego.</p>
+<button>🎲 Lanzar dado</button>
+</div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
