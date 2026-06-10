@@ -147,6 +147,14 @@ function actualizarPanel(){
 
     document.getElementById("racha").innerText =
         racha;
+        document.getElementById("monedas").innerText =
+monedas;
+
+document.getElementById("xp").innerText =
+xp;
+
+document.getElementById("nivelJugador").innerText =
+nivelJugador;
 }
 
 // =============================
@@ -559,6 +567,28 @@ function entrarNivelDificil(){
     alert(
         "🚧 Próximamente disponible."
     );
+
+}
+function ganarXP(cantidad){
+
+    xp += cantidad;
+
+    if(xp >= 100){
+
+        xp = 0;
+
+        nivelJugador++;
+
+        monedas += 20;
+
+        alert(
+        "🎉 ¡Subiste al nivel "
+        + nivelJugador + "!"
+        );
+
+    }
+
+    actualizarPanel();
 
 }
 ```
