@@ -18,3 +18,6 @@ alert("¡Registro completado!");
 document.getElementById("registro").style.display="none";
 document.getElementById("menu").style.display="block";
 }
+function entrarNivelFacil(){
+    alert("¡Bienvenido al Nivel Fácil!");
+}
